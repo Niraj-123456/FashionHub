@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Login</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+  <!-- Login Section Begin -->
+  <div class="register-login-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                {% if messages %}
+                <ul class="list-group messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="list-group-item list-group-item-{{ message.tags }}" {% endif %}>{{
+                        message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="login-form">
+                    <h2>Login</h2>
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <div class="group-input">
+                            <label for="username">UserName or Email address *</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="group-input">
+                            <label for="pass">Password *</label>
+                            <input type="password" id="pass" name="password">
+                        </div>
+                        <div class="group-input gi-check">
+                            <div class="gi-more">
+                                <label for="save-pass">
+                                    Save Password
+                                    <input type="checkbox" id="save-pass">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <a href="#" class="forget-pass">Forgot your Password</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="site-btn login-btn">Sign In</button>
+                    </form>
+                    <div class="switch-login">
+                        <a href="./register.html" class="or-login">Or Create An Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login Form Section End -->
+{% endblock %}

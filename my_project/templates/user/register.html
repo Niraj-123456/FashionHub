@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%}
+<title>Register</title>
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+ <!-- Register Section Begin -->
+ <div class="register-login-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                {% if form.errors %}
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-danger">{{ form.errors }}</li>
+                </ul>
+                {% endif %}
+                <div class="register-form">
+                    <h2>Register</h2>
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <div class="group-input">
+                            <label for="username">UserName *</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="group-input">
+                            <label for="email">Email address *</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="group-input">
+                            <label for="pass">Password *</label>
+                            <input type="password" id="pass" name="password1">
+                        </div>
+                        <div class="group-input">
+                            <label for="con-pass">Confirm Password *</label>
+                            <input type="password" id="con-pass" name="password2">
+                        </div>
+                        <button type="submit" class="site-btn register-btn">REGISTER</button>
+                    </form>
+                    <div class="switch-login">
+                        <a href="{% url 'login' %}" class="or-login">Or Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register Form Section End -->
+{% endblock %}
